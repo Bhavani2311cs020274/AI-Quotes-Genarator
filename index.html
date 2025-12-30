@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Quote Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Quote Generator</h1>
+
+    <form method="POST">
+        <select name="topic" required>
+            <option value="">Select Topic</option>
+            <option value="motivational">Motivational</option>
+            <option value="life">Life</option>
+            <option value="success">Success</option>
+            <option value="self_confidence">Self Confidence</option>
+            <option value="positive_thinking">Positive Thinking</option>
+            <option value="mental_strength">Mental Strength</option>
+            <option value="discipline">Discipline</option>
+            <option value="hard_work">Hard Work</option>
+            <option value="dreams">Dreams</option>
+        </select>
+
+        <button type="submit">Generate Quote</button>
+    </form>
+
+    {% if quote %}
+        <p class="quote">{{ quote }}</p>
+    {% endif %}
+</div>
+
+</body>
+</html>
