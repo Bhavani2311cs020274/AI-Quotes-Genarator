@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Quote Generator</title>
+
+<style>
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* FULL SCREEN BLUE BACKGROUND */
+body {
+    height: 100vh;
+    background: linear-gradient(135deg, #6f7de2, #7a5cbf);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* CENTER WHITE BOX */
+.box {
+    background: #ffffff;
+    width: 420px;
+    padding: 32px;
+    border-radius: 18px;
+    text-align: center;
+    box-shadow: 0 25px 50px rgba(0,0,0,0.25);
+}
+
+/* TITLE */
+.box h1 {
+    font-size: 26px;
+    margin-bottom: 22px;
+    color: #222;
+}
+
+/* DROPDOWN */
+select {
+    width: 100%;
+    padding: 14px;
+    font-size: 15px;
+    border-radius: 10px;
+    border: 1.5px solid #6f7de2;
+    margin-bottom: 18px;
+    outline: none;
+}
+
+/* BUTTON */
+button {
+    width: 100%;
+    padding: 14px;
+    background: #6f7de2;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #5e6bd6;
+}
+
+/* QUOTE OUTPUT */
+.quote {
+    margin-top: 20px;
+    padding: 16px;
+    background: #f4f6ff;
+    border-left: 5px solid #6f7de2;
+    border-radius: 10px;
+    font-size: 15.5px;
+    color: #333;
+    display: none;
+}
+</style>
+</head>
+
+<body>
+
+<div class="box">
+    <h1>Quote Generator</h1>
+
+    <select id="topic">
+        <option value="">Select Topic</option>
+        <option value="motivational">Motivational</option>
+        <option value="life">Life</option>
+        <option value="success">Success</option>
+        <option value="self">Self Confidence</option>
+        <option value="positive">Positive Thinking</option>
+        <option value="mental">Mental Strength</option>
+        <option value="discipline">Discipline</option>
+        <option value="hard">Hard Work</option>
+        <option value="dreams">Dreams</option>
+    </select>
+
+    <button onclick="generateQuote()">Generate Quote</button>
+
+    <div id="quoteBox" class="quote"></div>
+</div>
+
+<script>
+function generateQuote() {
+    const topic = document.getElementById("topic").value;
+    const box = document.getElementById("quoteBox");
+
+    let quote = "";
+
+    if (topic === "motivational") {
+        quote = "Dream big and dare to fail.";
+    } else if (topic === "life") {
+        quote = "Life is short. Make it meaningful.";
+    } else if (topic === "success") {
+        quote = "Success comes from consistency.";
+    } else if (topic === "self") {
+        quote = "Confidence grows with action.";
+    } else if (topic === "positive") {
+        quote = "Thoughts shape your reality.";
+    } else if (topic === "mental") {
+        quote = "Mental strength is built through challenges.";
+    } else if (topic === "discipline") {
+        quote = "Discipline is choosing what you want most.";
+    } else if (topic === "hard") {
+        quote = "There are no shortcuts to success.";
+    } else if (topic === "dreams") {
+        quote = "Dreams don’t work unless you do.";
+    } else {
+        quote = "Please select a topic.";
+    }
+
+    box.innerText = quote;
+    box.style.display = "block";
+}
+</script>
+
+</body>
+</html>
